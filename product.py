@@ -24,6 +24,7 @@ for i in p_sum:
 print('今天一共消費金額為', count, '元')
 
 
-with open('product.csv', 'w') as f:
+with open('product.csv', 'w', encoding='utf-8') as f:#encoding='utf-8'為使用utf-8編碼
+	f.write('商品,價格\n')#新增欄位名稱
 	for q in q_sum:
 		f.write(q[0] + ',' + q[1] + '\n')
