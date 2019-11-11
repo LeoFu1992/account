@@ -1,18 +1,25 @@
 #記帳程式
+q_sum = []
+with open('product.csv', 'r', encoding='utf-8') as f:
+	for line in f:
+		if '商品,價格' in line:
+			continue #如果出現'商品,價格'就跳過此迴圈
+		name, price = line.strip().split(',') #先將line裡面的分行符號去掉，在用split以 ,為界做切割
+		q_sum.append([name, price])
+#print(q_sum)
+
 products = []
 p_sum = []
-q_sum = []
 while True:
 	name = input('請輸入商品名稱:')
 	if name == 'q':
 		break
 	price = input('請輸入商品價格')
-	price = int(price)
-	p = [name, price]
-	q = [name, str(price)]
+	p = [name, int(price)]
+	q = [name, price]
 	products.append(p)
 	q_sum.append(q)
-	p_sum.append(price)
+	p_sum.append(int(price))
 #print(products)
 
 for product in products:
